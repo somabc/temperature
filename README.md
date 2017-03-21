@@ -1,4 +1,4 @@
-Temperature Monitor for Raspberry Pi. Used to monitor datacentre temperature.
+Temperature Monitor for Raspberry Pi. 
 
 *For Raspbian (Jessie)*
 
