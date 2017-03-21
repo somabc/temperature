@@ -27,11 +27,14 @@ Setup a cron job to trigger monitor.py every 15 mins
 
 Configure Apache to run Python files
 
-    sudo vim /etc/apache2/sites-enabled/000-default
+    sudo vim /etc/apache2/sites-enabled/000-default.conf
 
-    <Directory "/usr/lib/cgi-bin">
-    ...
-    AddHandler cgi-script .py
-    </Directory>
+      ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+        <Directory "/usr/lib/cgi-bin">
+         Options +ExecCGI
+         AddHandler cgi-script .cgi .pl .py
+         Options FollowSymLinks
+         Require all granted
+        </Directory>
 
     sudo service apache2 reload
