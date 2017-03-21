@@ -1,8 +1,6 @@
-Temperature Monitor for Raspberry Pi.
+Temperature Monitor for Raspberry Pi. Used to monitor datacentre temperature.
 
-Used to monitor datacentre temperature.
-
-For Raspbian (Jessie)
+*For Raspbian (Jessie)*
 
 Requirements: Python, SQLite, Apache
 
