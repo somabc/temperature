@@ -19,7 +19,7 @@ Requirements: Python, SQLite, Apache
     sudo chmod +x /usr/lib/cgi-bin/monitor.py 
     sudo chown www-data:www-data /usr/lib/cgi-bin/monitor.py 
 
-Setup a cron job ro trigger monitor.py every 15 mins
+Setup a cron job to trigger monitor.py every 15 mins
 
     sudo crontab -u www-data -e
 
