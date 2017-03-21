@@ -132,7 +132,7 @@ def show_stats(option):
     print "<hr>"
 
 
-    print "<h2>Minumum temperature&nbsp</h2>"
+    print "<h2>Miniumum temperature</h2>"
     print rowstrmin
     print "<h2>Maximum temperature</h2>"
     print rowstrmax
