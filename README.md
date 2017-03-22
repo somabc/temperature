@@ -37,4 +37,7 @@ Configure Apache to run Python files
          Require all granted
         </Directory>
 
-    sudo service apache2 reload
+Enable cgi-bin
+
+    sudo a2enmod cgi
+    sudo service apache2 restart
