@@ -60,7 +60,7 @@ while True:
       msg = MIMEText (message)
       msg['Subject'] = 'LEVEL 10 TEMPERATURE WARNING!'
       msg['From'] = 'ee.service@imperial.ac.uk'
-      msg['To'] = 'it.request@imperial.ac.uk'
+      msg['To'] = 'i.t.request@imperial.ac.uk'
       # send the email
       s = smtplib.SMTP('smarthost.cc.ic.ac.uk')
 #      s.login('username', 'password')   # no need for auth on campus
