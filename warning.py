@@ -56,7 +56,7 @@ while True:
       datafile.close()
       os.system('rm /tmp/tempdata.log')
    #create email
-      message = """Machine Room temperature outside of ideal range. %s """ % temp 
+      message = """Machine Room temperature is %s degrees. """ % temp 
       msg = MIMEText (message)
       msg['Subject'] = 'LEVEL 10 TEMPERATURE WARNING!'
       msg['From'] = 'ee.service@imperial.ac.uk'
