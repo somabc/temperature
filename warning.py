@@ -9,7 +9,7 @@ import os
 
 #set values
 warningcount = 0
-max = 27.5
+max = 20.5
 min = 10
 
 #Open datafile for storing temperature data
@@ -52,9 +52,9 @@ while True:
 
    #check for warnings
    if warningcount == 6:
-   #Move data file to archive
+   #Remove data file to archive
       datafile.close()
-      os.system('mv /tempdata.log "/logs/`date +%Y%m%d_%H.%M`_temp.log"')
+      os.system('rm /tmp/tempdata.log')
    #create email
       message = """Machine Room temperature outside of ideal range."""
       msg = MIMEText (message)
