@@ -9,8 +9,8 @@ import os
 
 #set values
 warningcount = 0
-max = 20.5
-min = 10
+max = 26.5
+min = 5
 
 #Open datafile for storing temperature data
 datafile = open("/tmp/tempdata.log", "a")
@@ -56,7 +56,7 @@ while True:
       datafile.close()
       os.system('rm /tmp/tempdata.log')
    #create email
-      message = """Machine Room temperature outside of ideal range."""
+      message = """Machine Room temperature outside of ideal range. %s """ % temp 
       msg = MIMEText (message)
       msg['Subject'] = 'LEVEL 10 TEMPERATURE WARNING!'
       msg['From'] = 'ee.service@imperial.ac.uk'
@@ -77,8 +77,8 @@ while True:
       print
       print
 
-#sleep for 1 minute
-   sleep(60)
+#sleep for 10 minutes
+   sleep(600)
 #close data file
 datafile.close()
 
