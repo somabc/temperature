@@ -9,7 +9,7 @@ import os
 
 #set values
 warningcount = 0
-max = 26.5
+max = 29.5
 min = 5
 
 #Open datafile for storing temperature data
