@@ -112,7 +112,7 @@ def show_stats(option):
     curs=conn.cursor()
 
     if option is None:
-        option = str(24)
+        option = str(168)
 
     curs.execute("SELECT timestamp,max(temp) FROM temps WHERE timestamp>datetime('now','-%s hour') AND timestamp<=datetime('now')" % option)
 #    curs.execute("SELECT timestamp,max(temp) FROM temps WHERE timestamp>datetime('2013-09-19 21:30:02','-%s hour') AND timestamp<=datetime('2013-09-19 21:31:02')" % option)
