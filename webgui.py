@@ -168,10 +168,10 @@ def print_time_selector(option):
 
     if option is not None:
 
-        if option == "6":
-            print "<option value=\"6\" selected=\"selected\">the last 6 hours</option>"
+        if option == "168":
+            print "<option value=\"168\" selected=\"selected\">the last week</option>"
         else:
-            print "<option value=\"6\">the last 6 hours</option>"
+            print "<option value=\"168\">the last week</option>"
 
         if option == "12":
             print "<option value=\"12\" selected=\"selected\">the last 12 hours</option>"
@@ -184,7 +184,7 @@ def print_time_selector(option):
             print "<option value=\"24\">the last 24 hours</option>"
 
     else:
-        print """<option value="6">the last 6 hours</option>
+        print """<option value="168">the last week</option>
             <option value="12">the last 12 hours</option>
             <option value="24" selected="selected">the last 24 hours</option>"""
 
