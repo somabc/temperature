@@ -112,7 +112,7 @@ def show_stats(option):
     curs=conn.cursor()
 
     if option is None:
-        option = str(168)
+        option = str(730)
 
     curs.execute("SELECT timestamp,max(temp) FROM temps WHERE timestamp>datetime('now','-%s hour') AND timestamp<=datetime('now')" % option)
 #    curs.execute("SELECT timestamp,max(temp) FROM temps WHERE timestamp>datetime('2013-09-19 21:30:02','-%s hour') AND timestamp<=datetime('2013-09-19 21:31:02')" % option)
@@ -173,10 +173,10 @@ def print_time_selector(option):
         else:
             print "<option value=\"168\">the last week</option>"
 
-        if option == "12":
-            print "<option value=\"12\" selected=\"selected\">the last 12 hours</option>"
+        if option == "730":
+            print "<option value=\"730\" selected=\"selected\">the last month</option>"
         else:
-            print "<option value=\"12\">the last 12 hours</option>"
+            print "<option value=\"730\">the last month</option>"
 
         if option == "24":
             print "<option value=\"24\" selected=\"selected\">the last 24 hours</option>"
@@ -185,7 +185,7 @@ def print_time_selector(option):
 
     else:
         print """<option value="168">the last week</option>
-            <option value="12">the last 12 hours</option>
+            <option value="730">the last month</option>
             <option value="24" selected="selected">the last 24 hours</option>"""
 
     print """        </select>
@@ -199,7 +199,7 @@ def validate_input(option_str):
     # check that the option string represents a number
     if option_str.isalnum():
         # check that the option is within a specific range
-        if int(option_str) > 0 and int(option_str) <= 168:
+        if int(option_str) > 0 and int(option_str) <= 730:
             return option_str
         else:
             return None
