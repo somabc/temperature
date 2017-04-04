@@ -43,7 +43,6 @@ def get_data(interval):
         curs.execute("SELECT * FROM temps")
     else:
         curs.execute("SELECT * FROM temps WHERE timestamp>datetime('now','-%s hours')" % interval)
-#        curs.execute("SELECT * FROM temps WHERE timestamp>datetime('2013-09-19 21:30:02','-%s hours') AND timestamp<=datetime('2013-09-19 21:31:02')" % interval)
 
     rows=curs.fetchall()
 
@@ -115,17 +114,14 @@ def show_stats(option):
         option = str(730)
 
     curs.execute("SELECT timestamp,max(temp) FROM temps WHERE timestamp>datetime('now','-%s hour') AND timestamp<=datetime('now')" % option)
-#    curs.execute("SELECT timestamp,max(temp) FROM temps WHERE timestamp>datetime('2013-09-19 21:30:02','-%s hour') AND timestamp<=datetime('2013-09-19 21:31:02')" % option)
     rowmax=curs.fetchone()
     rowstrmax="{0}&nbsp&nbsp&nbsp{1}C".format(str(rowmax[0]),str(rowmax[1]))
 
     curs.execute("SELECT timestamp,min(temp) FROM temps WHERE timestamp>datetime('now','-%s hour') AND timestamp<=datetime('now')" % option)
-#    curs.execute("SELECT timestamp,min(temp) FROM temps WHERE timestamp>datetime('2013-09-19 21:30:02','-%s hour') AND timestamp<=datetime('2013-09-19 21:31:02')" % option)
     rowmin=curs.fetchone()
     rowstrmin="{0}&nbsp&nbsp&nbsp{1}C".format(str(rowmin[0]),str(rowmin[1]))
 
     curs.execute("SELECT avg(temp) FROM temps WHERE timestamp>datetime('now','-%s hour') AND timestamp<=datetime('now')" % option)
-#    curs.execute("SELECT avg(temp) FROM temps WHERE timestamp>datetime('2013-09-19 21:30:02','-%s hour') AND timestamp<=datetime('2013-09-19 21:31:02')" % option)
     rowavg=curs.fetchone()
 
 
@@ -168,25 +164,26 @@ def print_time_selector(option):
 
     if option is not None:
 
-        if option == "168":
-            print "<option value=\"168\" selected=\"selected\">the last week</option>"
-        else:
-            print "<option value=\"168\">the last week</option>"
-
         if option == "730":
             print "<option value=\"730\" selected=\"selected\">the last month</option>"
         else:
             print "<option value=\"730\">the last month</option>"
 
-        if option == "24":
-            print "<option value=\"24\" selected=\"selected\">the last 24 hours</option>"
+
+        if option == "168":
+            print "<option value=\"168\" selected=\"selected\">the last week</option>"
         else:
-            print "<option value=\"24\">the last 24 hours</option>"
+            print "<option value=\"168\">the last week</option>"
+
+        if option == "24":
+            print "<option value=\"24\" selected=\"selected\">the last day</option>"
+        else:
+            print "<option value=\"24\">the last day</option>"
 
     else:
         print """<option value="168">the last week</option>
             <option value="730">the last month</option>
-            <option value="24" selected="selected">the last 24 hours</option>"""
+            <option value="24" selected="selected">the last day</option>"""
 
     print """        </select>
         <input type="submit" value="Display">
@@ -259,10 +256,7 @@ def main():
     show_stats(option)
     
     print "<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">"
-#    print "<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css\" integrity=\"sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp\" crossorigin=\"anonymous\">"
     print "<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\" integrity=\"sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa\" crossorigin=\"anonymous\"></script>"
-#    print "<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css\">"
-#    print "<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css\">"
     print "<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css\">"
     print "</body>"
     print "</html>"
