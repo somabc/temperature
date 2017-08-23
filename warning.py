@@ -25,7 +25,7 @@ while True:
    #Print on screen information
    print "Time", datetime.time(datetime.now())
    print
-   print temp, "degrees celcius."
+   print temp, "degrees celsius."
    print "................"
    #write temperature to log file
    time = datetime.time(datetime.now())
