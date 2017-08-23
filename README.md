@@ -42,4 +42,6 @@ Enable cgi-bin
     sudo a2enmod cgi
     sudo service apache2 restart
 
-You will also need to enable the gpio pins on boot by adding dtoverlay=w1-gpio to /boot/config.txt
+You will also need to enable the gpio w1 device tree in /boot/config.txt
+
+    dtoverlay=w1-gpio
