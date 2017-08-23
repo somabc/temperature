@@ -1,6 +1,6 @@
 Temperature Monitor for Raspberry Pi. 
 
-*For Raspbian (Jessie)*
+*For Raspbian (Jessie/Stretch)*
 
 Requirements: Python, SQLite, Apache
 
@@ -25,7 +25,7 @@ Requirements: Python, SQLite, Apache
 
 Setup a cron job to trigger monitor.py every 15 mins
 
-    sudo crontab -u root -e
+    sudo crontab -e
 
     */15 * * * * /usr/lib/cgi-bin/monitor.py
 
@@ -49,3 +49,14 @@ Enable cgi-bin
 Enable the w1 device tree overlay in /boot/config.txt
 
     dtoverlay=w1-gpio
+   
+For email notifications (make sure you have a properly configured MTA such as postfix and bsd-mailx)
+
+    sudo mv warning.py /usr/local/bin
+    sudo chmod +x /usr/local/bin/warning.py
+
+Add systemd service to check temperature and warn if above/below threshold
+
+    sudo mv temperature.service /etc/systemd/system
+    systemctl enable temperature.service
+    systemctl start temperature.service
