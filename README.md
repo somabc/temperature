@@ -20,6 +20,7 @@ Requirements: Python, SQLite, Apache
     sudo chown www-data:www-data /usr/lib/cgi-bin/monitor.py
     
     sudo mv webgui.py /usr/lib/cgi-bin/webgui.py
+    sudo chmod +x /usr/lib/cgi-bin/webgui.py
     sudo chown www-data:www-data /usr/lib/cgi-bin/webgui.py
 
 Setup a cron job to trigger monitor.py every 15 mins
