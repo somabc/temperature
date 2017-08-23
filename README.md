@@ -24,7 +24,7 @@ Requirements: Python, SQLite, Apache
 
 Setup a cron job to trigger monitor.py every 15 mins
 
-    sudo crontab -u www-data -e
+    sudo crontab -u root -e
 
     */15 * * * * /usr/lib/cgi-bin/monitor.py
 
