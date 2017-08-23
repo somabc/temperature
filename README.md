@@ -42,6 +42,6 @@ Enable cgi-bin
     sudo a2enmod cgi
     sudo service apache2 restart
 
-You will also need to enable the gpio w1 device tree in /boot/config.txt
+Enable the w1 device tree overlay in /boot/config.txt
 
     dtoverlay=w1-gpio
