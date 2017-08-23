@@ -13,11 +13,14 @@ Requirements: Python, SQLite, Apache
     COMMIT;
 
 
-    sudo cp templog.db /var/www/
+    sudo mv templog.db /var/www/
     sudo chown www-data:www-data /var/www/templog.db 
 
     sudo chmod +x /usr/lib/cgi-bin/monitor.py 
-    sudo chown www-data:www-data /usr/lib/cgi-bin/monitor.py 
+    sudo chown www-data:www-data /usr/lib/cgi-bin/monitor.py
+    
+    sudo mv webgui.py /usr/lib/cgi-bin/webgui.py
+    sudo chown www-data:www-data /usr/lib/cgi-bin/webgui.py
 
 Setup a cron job to trigger monitor.py every 15 mins
 
